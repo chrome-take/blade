@@ -1,0 +1,24 @@
+{
+  "name": "Chrome-ext-take",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "只为更好的浏览体验",
+  "icons": {
+    "16": "src/img/icons/icon512.png",
+    "48": "src/img/icons/icon512.png",
+    "128": "src/img/icons/icon512.png"
+  },
+  "permissions": ["storage", "webRequest", "*://*/*"],
+  "browser_action": {
+    "default_icon": "src/img/icons/icon512.png",
+    "default_title": "Chrome-ext-take"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/js/vendor/jquery.min.js", "src/js/inject/inject.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+}
